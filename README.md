@@ -1,4 +1,4 @@
-# aoc-2021-in-kotlin
+# Advent of Code 2021 🎄
 
 Welcome to the Advent of Code[^aoc] Kotlin project created by [barros9][github] using the [Advent of Code Kotlin Template][template] delivered by JetBrains.
 
