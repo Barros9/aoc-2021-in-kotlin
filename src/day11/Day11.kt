@@ -33,6 +33,7 @@ fun main() {
     // test if implementation meets criteria from the description, like:
     val testInput = readInput("day11/Day11_test")
     check(part1(testInput) == 1656)
+    check(part2(testInput) == 195)
 
     val input = readInput("day11/Day11")
     println(part1(input))
