@@ -23,7 +23,7 @@ fun main() {
     println(part2(input))
 }
 
-fun List<String>.parseInput(): Pair<String, Map<String, List<String>>> {
+private fun List<String>.parseInput(): Pair<String, Map<String, List<String>>> {
     val template = this.first()
     val map = this.drop(2)
         .associate {
@@ -33,7 +33,7 @@ fun List<String>.parseInput(): Pair<String, Map<String, List<String>>> {
     return Pair(template, map)
 }
 
-fun Map<String, List<String>>.processTemplate(template: String, times: Int): Long {
+private fun Map<String, List<String>>.processTemplate(template: String, times: Int): Long {
     var currentTemplate = template
         .windowed(2)
         .groupingBy { it }

@@ -41,8 +41,8 @@ fun main() {
     println(part2(input))
 }
 
-fun List<String>.countBits(position: Int): Pair<Int, Int> =
+private fun List<String>.countBits(position: Int): Pair<Int, Int> =
     this.map { it[position] }.run { count { it == '0' } to count { it == '1' } }
 
-fun Pair<Int, Int>.getMostCommon(): Char = if (this.first > this.second) '0' else '1'
-fun Pair<Int, Int>.getLeastCommon(): Char = if (this.first > this.second) '1' else '0'
+private fun Pair<Int, Int>.getMostCommon(): Char = if (this.first > this.second) '0' else '1'
+private fun Pair<Int, Int>.getLeastCommon(): Char = if (this.first > this.second) '1' else '0'

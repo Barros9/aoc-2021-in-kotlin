@@ -27,7 +27,7 @@ fun main() {
     println(part2(input))
 }
 
-data class Point(val x: Int, val y: Int)
+private data class Point(val x: Int, val y: Int)
 
 private fun List<List<Int>>.applyDijkstra(): Int {
     val startPoint = Point(0, 0)

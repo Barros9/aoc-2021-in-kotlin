@@ -38,7 +38,6 @@ private sealed class Number
 private class PairNumber(var left: Number, var right: Number) : Number() {
     override fun toString() = "[$left,$right]"
 }
-
 private class RegularNumber(var value: Int) : Number() {
     override fun toString() = value.toString()
 }

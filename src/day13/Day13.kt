@@ -25,9 +25,9 @@ fun main() {
     part2(input)
 }
 
-data class Coordinate(var x: Int, var y: Int)
+private data class Coordinate(var x: Int, var y: Int)
 
-fun List<String>.parseInput(): Pair<List<Coordinate>, List<Pair<String, Int>>> {
+private fun List<String>.parseInput(): Pair<List<Coordinate>, List<Pair<String, Int>>> {
     val folds = this
         .filter { it.startsWith("f") }
         .map {
@@ -44,7 +44,7 @@ fun List<String>.parseInput(): Pair<List<Coordinate>, List<Pair<String, Int>>> {
     return Pair(coordinates, folds)
 }
 
-fun List<Coordinate>.fold(fold: Pair<String, Int>): List<Coordinate> {
+private fun List<Coordinate>.fold(fold: Pair<String, Int>): List<Coordinate> {
     val width = this.maxOf { it.x }
     val height = this.maxOf { it.y }
 
@@ -64,7 +64,7 @@ fun List<Coordinate>.fold(fold: Pair<String, Int>): List<Coordinate> {
     return this.distinct()
 }
 
-fun List<Coordinate>.printCode() {
+private fun List<Coordinate>.printCode() {
     val width = this.maxOf { it.x }
     val height = this.maxOf { it.y }
 

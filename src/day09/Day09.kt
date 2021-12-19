@@ -41,6 +41,8 @@ private fun Point.adjacent(): List<Point> = listOf(
     Point(row, column - 1)
 )
 
+private data class Point(val row: Int, val column: Int, val value: Int = 0)
+
 private fun List<List<Point>>.isLowPoint(point: Point): Boolean =
     point.adjacent().all {
         this[point.row][point.column].value < (this.getOrNull(it.row)?.getOrNull(it.column)?.value ?: Int.MAX_VALUE)
@@ -60,5 +62,3 @@ private fun List<List<Point>>.getBasinSize(lowPoint: Point): Int {
     val current = this.getOrNull(lowPoint.row)?.getOrNull(lowPoint.column) ?: return 0
     return getBasinSizeRec(lowPoint, current, HashSet())
 }
-
-data class Point(val row: Int, val column: Int, val value: Int = 0)

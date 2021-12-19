@@ -35,7 +35,7 @@ fun main() {
     println(part2(input))
 }
 
-class Line(points: List<String>) {
+private class Line(points: List<String>) {
     private val p1: Point
     private val p2: Point
 
@@ -65,7 +65,7 @@ class Line(points: List<String>) {
     }
 }
 
-data class Point(var x: Int, var y: Int) {
+private data class Point(var x: Int, var y: Int) {
     constructor(string: String) : this(0, 0) {
         val (x, y) = string.split(",")
         this.x = x.toInt()
@@ -81,4 +81,4 @@ data class Point(var x: Int, var y: Int) {
     }
 }
 
-enum class Direction { Horizontal, Vertical, Diagonal }
+private enum class Direction { Horizontal, Vertical, Diagonal }

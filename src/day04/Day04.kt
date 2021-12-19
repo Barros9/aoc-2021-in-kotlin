@@ -46,12 +46,9 @@ fun main() {
     println(part2(input))
 }
 
-fun parseCard(input: List<String>) =
-    Card(input.flatMap { row -> row.trim().replace("\\s+".toRegex(), ",").split(",").map { Box(it.toInt()) } })
+private data class Box(val number: Int, var isMarked: Boolean = false)
 
-data class Box(val number: Int, var isMarked: Boolean = false)
-
-class Card(private val boxes: List<Box>) {
+private class Card(private val boxes: List<Box>) {
     var isAWinnerCard = false
 
     fun mark(number: Int) {
@@ -86,3 +83,6 @@ class Card(private val boxes: List<Box>) {
         boxes[index + 5 * 4]
     ).all { it.isMarked }
 }
+
+private fun parseCard(input: List<String>) =
+    Card(input.flatMap { row -> row.trim().replace("\\s+".toRegex(), ",").split(",").map { Box(it.toInt()) } })

@@ -55,14 +55,14 @@ fun main() {
     println(part2(input))
 }
 
-data class Cave(val name: String) {
+private data class Cave(val name: String) {
     val nextCaves = mutableListOf<Cave>()
     val isStart get() = name == "start"
     val isEnd get() = name == "end"
     val isSmall get() = name.all { c -> c.isLowerCase() }
 }
 
-fun List<String>.parseCaves(): List<Cave> {
+private fun List<String>.parseCaves(): List<Cave> {
     val caves = mutableMapOf<String, Cave>()
 
     this.forEach {

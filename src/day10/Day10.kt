@@ -35,7 +35,7 @@ fun main() {
     println(part2(input))
 }
 
-fun String.getIncompleteLinesOrCorruptedChar(): String {
+private fun String.getIncompleteLinesOrCorruptedChar(): String {
     val bracketMapping = mapOf(']' to '[', '>' to '<', ')' to '(', '}' to '{')
 
     fun getIncompleteLinesOrCorruptedCharRec(string: String): String {
@@ -53,7 +53,7 @@ fun String.getIncompleteLinesOrCorruptedChar(): String {
     return getIncompleteLinesOrCorruptedCharRec(this)
 }
 
-fun String.getIncompleteLineScore(): Long {
+private fun String.getIncompleteLineScore(): Long {
     var totalScore = 0L
     val scoreMapping = mapOf('(' to 1, '[' to 2, '{' to 3, '<' to 4)
 

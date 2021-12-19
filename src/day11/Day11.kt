@@ -40,9 +40,9 @@ fun main() {
     println(part2(input))
 }
 
-data class Octopus(val row: Int, val column: Int, var energy: Int, var isFlashed: Boolean = false)
+private data class Octopus(val row: Int, val column: Int, var energy: Int, var isFlashed: Boolean = false)
 
-fun List<List<Octopus>>.countFlashes(): Int {
+private fun List<List<Octopus>>.countFlashes(): Int {
     var flashes = 0
 
     this.flatten().forEach { it.energy++ }

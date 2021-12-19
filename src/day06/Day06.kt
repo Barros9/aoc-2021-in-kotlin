@@ -25,17 +25,17 @@ fun main() {
     println(part2(input))
 }
 
-fun parseFishes(input: List<String>): MutableMap<Int, Long> =
+private fun parseFishes(input: List<String>): MutableMap<Int, Long> =
     input
         .first()
         .split(',')
         .map { it.toInt() }
         .groupingBy { it }
         .eachCount()
-        .mapValues { (key, value) -> value.toLong() }
+        .mapValues { (_, value) -> value.toLong() }
         .toMutableMap()
 
-fun MutableMap<Int, Long>.nextDay(): MutableMap<Int, Long> =
+private fun MutableMap<Int, Long>.nextDay(): MutableMap<Int, Long> =
     mapKeysTo(mutableMapOf()) { (key) -> key - 1 }.apply {
         this.remove(-1)?.also {
             this[6] = it + (this[6] ?: 0L)
