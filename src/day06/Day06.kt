@@ -1,8 +1,9 @@
 package day06
 
+import Day
 import readInput
 
-fun main() {
+class Day06 : Day {
     fun part1(input: List<String>): Long {
         var fishes = parseFishes(input)
         repeat(80) { fishes = fishes.nextDay() }
@@ -15,14 +16,16 @@ fun main() {
         return fishes.values.sum()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day06/Day06_test")
-    check(part1(testInput) == 5934L)
-    check(part2(testInput) == 26984457539L)
+    override fun play() {
+        val testInput = readInput("day06/Day06_test")
+        check(part1(testInput) == 5934L)
+        check(part2(testInput) == 26984457539L)
 
-    val input = readInput("day06/Day06")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day06/Day06")
+        println("Day 06")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private fun parseFishes(input: List<String>): MutableMap<Int, Long> =

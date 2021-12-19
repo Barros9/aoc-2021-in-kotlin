@@ -1,8 +1,9 @@
 package day13
 
+import Day
 import readInput
 
-fun main() {
+class Day13 : Day {
     fun part1(input: List<String>): Int {
         val (coordinates, folds) = input.parseInput()
         return coordinates
@@ -16,13 +17,17 @@ fun main() {
         coordinates.printCode()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day13/Day13_test")
-    check(part1(testInput) == 17)
+    override fun play() {
+        val testInput = readInput("day13/Day13_test")
+        check(part1(testInput) == 17)
 
-    val input = readInput("day13/Day13")
-    println(part1(input))
-    part2(input)
+        val input = readInput("day13/Day13")
+        println("Day 13")
+        println("- Part 1 result: ${part1(input)}")
+        print("- Part 2 result: ")
+        part2(input)
+        println()
+    }
 }
 
 private data class Coordinate(var x: Int, var y: Int)

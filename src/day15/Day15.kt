@@ -1,9 +1,10 @@
 package day15
 
+import Day
 import readInput
 import kotlin.Int.Companion.MAX_VALUE
 
-fun main() {
+class Day15 : Day {
     fun part1(input: List<String>): Int {
         return input
             .map { line -> line.map { it.digitToInt() } }
@@ -17,14 +18,16 @@ fun main() {
             .applyDijkstra()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day15/Day15_test")
-    check(part1(testInput) == 40)
-    check(part2(testInput) == 315)
+    override fun play() {
+        val testInput = readInput("day15/Day15_test")
+        check(part1(testInput) == 40)
+        check(part2(testInput) == 315)
 
-    val input = readInput("day15/Day15")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day15/Day15")
+        println("Day 15")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private data class Point(val x: Int, val y: Int)

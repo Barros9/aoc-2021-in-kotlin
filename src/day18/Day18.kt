@@ -1,9 +1,10 @@
 package day18
 
+import Day
 import readInput
 import kotlin.math.ceil
 
-fun main() {
+class Day18 : Day {
     fun part1(input: List<String>): Int {
         return input
             .map { it.parser() }
@@ -24,14 +25,16 @@ fun main() {
         return maxMagnitude
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day18/Day18_test")
-    check(part1(testInput) == 4140)
-    check(part2(testInput) == 3993)
+    override fun play() {
+        val testInput = readInput("day18/Day18_test")
+        check(part1(testInput) == 4140)
+        check(part2(testInput) == 3993)
 
-    val input = readInput("day18/Day18")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day18/Day18")
+        println("Day 18")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private sealed class Number

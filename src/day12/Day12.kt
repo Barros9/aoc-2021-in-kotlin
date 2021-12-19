@@ -1,8 +1,9 @@
 package day12
 
+import Day
 import readInput
 
-fun main() {
+class Day12 : Day {
     fun part1(input: List<String>): Int {
         fun recurse(cave: Cave, path: List<Cave>): Int {
             return if (cave.isEnd) {
@@ -37,22 +38,24 @@ fun main() {
         return recurse(startCave, emptyList(), false)
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput0 = readInput("day12/Day12_test_0")
-    check(part1(testInput0) == 10)
-    check(part2(testInput0) == 36)
+    override fun play() {
+        val testInput0 = readInput("day12/Day12_test_0")
+        check(part1(testInput0) == 10)
+        check(part2(testInput0) == 36)
 
-    val testInput1 = readInput("day12/Day12_test_1")
-    check(part1(testInput1) == 19)
-    check(part2(testInput1) == 103)
+        val testInput1 = readInput("day12/Day12_test_1")
+        check(part1(testInput1) == 19)
+        check(part2(testInput1) == 103)
 
-    val testInput2 = readInput("day12/Day12_test_2")
-    check(part1(testInput2) == 226)
-    check(part2(testInput2) == 3509)
+        val testInput2 = readInput("day12/Day12_test_2")
+        check(part1(testInput2) == 226)
+        check(part2(testInput2) == 3509)
 
-    val input = readInput("day12/Day12")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day12/Day12")
+        println("Day 12")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private data class Cave(val name: String) {

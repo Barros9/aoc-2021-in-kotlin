@@ -1,8 +1,9 @@
 package day02
 
+import Day
 import readInput
 
-fun main() {
+class Day02 : Day {
     fun part1(input: List<String>): Int {
         var (forward, up, down) = listOf(0, 0, 0)
         input.map { it.split(" ") }.forEach {
@@ -30,12 +31,14 @@ fun main() {
         return forward * depth
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day02/Day02_test")
-    check(part1(testInput) == 150)
-    check(part2(testInput) == 900)
+    override fun play() {
+        val testInput = readInput("day02/Day02_test")
+        check(part1(testInput) == 150)
+        check(part2(testInput) == 900)
 
-    val input = readInput("day02/Day02")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day02/Day02")
+        println("Day 02")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }

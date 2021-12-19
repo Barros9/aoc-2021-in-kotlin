@@ -1,8 +1,9 @@
 package day03
 
+import Day
 import readInput
 
-fun main() {
+class Day03 : Day {
     fun part1(input: List<String>): Int {
         val columns = input.first().indices
 
@@ -31,14 +32,16 @@ fun main() {
         return oxygen * co2
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day03/Day03_test")
-    check(part1(testInput) == 198)
-    check(part2(testInput) == 230)
+    override fun play() {
+        val testInput = readInput("day03/Day03_test")
+        check(part1(testInput) == 198)
+        check(part2(testInput) == 230)
 
-    val input = readInput("day03/Day03")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day03/Day03")
+        println("Day 03")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private fun List<String>.countBits(position: Int): Pair<Int, Int> =

@@ -1,8 +1,9 @@
 package day09
 
+import Day
 import readInput
 
-fun main() {
+class Day09 : Day {
     fun part1(input: List<String>): Int {
         val matrix =
             input.mapIndexed { row, line -> line.mapIndexed { column, elem -> Point(row, column, elem.digitToInt()) } }
@@ -24,14 +25,16 @@ fun main() {
             .reduce { acc, i -> acc * i }
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day09/Day09_test")
-    check(part1(testInput) == 15)
-    check(part2(testInput) == 1134)
+    override fun play() {
+        val testInput = readInput("day09/Day09_test")
+        check(part1(testInput) == 15)
+        check(part2(testInput) == 1134)
 
-    val input = readInput("day09/Day09")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day09/Day09")
+        println("Day 09")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private fun Point.adjacent(): List<Point> = listOf(

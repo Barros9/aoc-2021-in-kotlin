@@ -1,8 +1,9 @@
 package day01
 
+import Day
 import readInput
 
-fun main() {
+class Day01 : Day {
     fun part1(input: List<String>): Int {
         return input
             .asSequence()
@@ -21,12 +22,14 @@ fun main() {
             .count { (previous, next) -> previous < next }
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day01/Day01_test")
-    check(part1(testInput) == 7)
-    check(part2(testInput) == 5)
+    override fun play() {
+        val testInput = readInput("day01/Day01_test")
+        check(part1(testInput) == 7)
+        check(part2(testInput) == 5)
 
-    val input = readInput("day01/Day01")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day01/Day01")
+        println("Day 01")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }

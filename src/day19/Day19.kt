@@ -1,9 +1,10 @@
 package day19
 
+import Day
 import readInput
 import kotlin.math.abs
 
-fun main() {
+class Day19 : Day {
     fun part1(input: List<String>): Int {
         return input
             .parseInput()
@@ -18,14 +19,16 @@ fun main() {
             .maxDistance()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day19/Day19_test")
-    check(part1(testInput) == 79)
-    check(part2(testInput) == 3621)
+    override fun play() {
+        val testInput = readInput("day19/Day19_test")
+        check(part1(testInput) == 79)
+        check(part2(testInput) == 3621)
 
-    val input = readInput("day19/Day19")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day19/Day19")
+        println("Day 19")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private data class Point(val x: Int, val y: Int, val z: Int)

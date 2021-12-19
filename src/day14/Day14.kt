@@ -1,8 +1,9 @@
 package day14
 
+import Day
 import readInput
 
-fun main() {
+class Day14 : Day {
     fun part1(input: List<String>): Long {
         val (template, map) = input.parseInput()
         return map.processTemplate(template, 10)
@@ -13,14 +14,16 @@ fun main() {
         return map.processTemplate(template, 40)
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day14/Day14_test")
-    check(part1(testInput) == 1588L)
-    check(part2(testInput) == 2188189693529L)
+    override fun play() {
+        val testInput = readInput("day14/Day14_test")
+        check(part1(testInput) == 1588L)
+        check(part2(testInput) == 2188189693529L)
 
-    val input = readInput("day14/Day14")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day14/Day14")
+        println("Day 14")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private fun List<String>.parseInput(): Pair<String, Map<String, List<String>>> {

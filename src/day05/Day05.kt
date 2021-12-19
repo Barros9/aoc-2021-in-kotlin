@@ -1,9 +1,10 @@
 package day05
 
+import Day
 import day05.Direction.*
 import readInput
 
-fun main() {
+class Day05 : Day {
     fun part1(input: List<String>): Int {
         return input
             .map { Line(it.split(" -> ")) }
@@ -25,14 +26,16 @@ fun main() {
             .size
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day05/Day05_test")
-    check(part1(testInput) == 5)
-    check(part2(testInput) == 12)
+    override fun play() {
+        val testInput = readInput("day05/Day05_test")
+        check(part1(testInput) == 5)
+        check(part2(testInput) == 12)
 
-    val input = readInput("day05/Day05")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day05/Day05")
+        println("Day 05")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private class Line(points: List<String>) {

@@ -1,8 +1,9 @@
 package day17
 
+import Day
 import readInput
 
-fun main() {
+class Day17 : Day {
     fun part1(input: List<String>): Int {
         return input
             .parseTargetArea()
@@ -17,14 +18,16 @@ fun main() {
             .count()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day17/Day17_test")
-    check(part1(testInput) == 45)
-    check(part2(testInput) == 112)
+    override fun play() {
+        val testInput = readInput("day17/Day17_test")
+        check(part1(testInput) == 45)
+        check(part2(testInput) == 112)
 
-    val input = readInput("day17/Day17")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day17/Day17")
+        println("Day 17")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
 private data class Velocity(var x: Int, var y: Int)

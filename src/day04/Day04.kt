@@ -1,8 +1,9 @@
 package day04
 
+import Day
 import readInput
 
-fun main() {
+class Day04 : Day {
     fun part1(input: List<String>): Int {
         val draws = input.first().split(",").map { it.toInt() }
         val cards = input.drop(2).windowed(size = 5, step = 6).map { parseCard(it) }
@@ -36,14 +37,17 @@ fun main() {
         return lastWinnerCard.first * lastWinnerCard.second.sumUnmarked()
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day04/Day04_test")
-    check(part1(testInput) == 4512)
-    check(part2(testInput) == 1924)
+    override fun play() {
+        val testInput = readInput("day04/Day04_test")
+        check(part1(testInput) == 4512)
+        check(part2(testInput) == 1924)
 
-    val input = readInput("day04/Day04")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day04/Day04")
+        println("Day 04")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
+
 }
 
 private data class Box(val number: Int, var isMarked: Boolean = false)

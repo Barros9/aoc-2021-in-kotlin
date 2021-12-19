@@ -1,8 +1,9 @@
 package day08
 
+import Day
 import readInput
 
-fun main() {
+class Day08 : Day {
     fun part1(input: List<String>): Int {
         return input.sumOf { line ->
             line.split(" | ")[1]
@@ -47,13 +48,15 @@ fun main() {
         }
     }
 
-    // test if implementation meets criteria from the description, like:
-    val testInput = readInput("day08/Day08_test")
-    check(part1(testInput) == 26)
-    check(part2(testInput) == 61229)
+    override fun play() {
+        val testInput = readInput("day08/Day08_test")
+        check(part1(testInput) == 26)
+        check(part2(testInput) == 61229)
 
-    val input = readInput("day08/Day08")
-    println(part1(input))
-    println(part2(input))
+        val input = readInput("day08/Day08")
+        println("Day 08")
+        println("- Part 1 result: ${part1(input)}")
+        println("- Part 2 result: ${part2(input)}")
+    }
 }
 
